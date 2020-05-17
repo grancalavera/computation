@@ -1,0 +1,18 @@
+{
+  "name": "@grancalavera/composable",
+  "version": "0.0.0",
+  "description": "Composable algebraic types and computation expressions",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "nodemon --watch 'src/**/*.ts' --exec ts-node src/index.ts"
+  },
+  "author": "leoncoto@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "14.0.1",
+    "nodemon": "2.0.4",
+    "ts-node": "8.10.1",
+    "typescript": "3.9.2"
+  }
+}
