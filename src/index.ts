@@ -1,3 +1,8 @@
+// Before going much further read this
+// https://medium.com/@gcanti/higher-kinded-types-in-typescript-static-and-fantasy-land-d41c361d0dbe
+// https://github.com/gcanti/fp-ts
+// https://gcanti.github.io/fp-ts/
+
 import { Result, result, ok, fail } from "./result";
 import { Option, some, none, option } from "./option";
 

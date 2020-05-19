@@ -1,12 +1,12 @@
 import { ComputationContext, computationContext, Fn, Compute } from "./common";
 
-export type Option<T> = Some<T> | None<T>;
+export type Option<T> = Some<T> | None;
 
 type Some<T> = { kind: "OptionSome"; value: T };
-type None<_T> = { kind: "OptionNone" };
+type None = { kind: "OptionNone" };
 
 export const isSome = <T>(o: Option<T>): o is Some<T> => o.kind === "OptionSome";
-export const isNone = <T>(o: Option<T>): o is None<T> => o.kind === "OptionNone";
+export const isNone = <T>(o: Option<T>): o is None => o.kind === "OptionNone";
 
 export const some = <T>(value: T): Option<T> => ({ kind: "OptionSome", value });
 export const none = <T>(): Option<T> => ({ kind: "OptionNone" });
