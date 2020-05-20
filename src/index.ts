@@ -4,7 +4,9 @@
 // https://gcanti.github.io/fp-ts/
 
 import { Result, result, ok, fail } from "./result";
-import { Option, some, none, option } from "./option";
+
+import { Option, some, none } from "fp-ts/lib/Option";
+import { option } from "./option";
 
 const resultWorkflow = (
   s: Result<string, number>,
@@ -28,8 +30,8 @@ console.log(resultWorkflow(badStringResult, badNumberResult));
 
 const goodStringOption: Option<string> = some("good");
 const goodNumberOption: Option<number> = some(42);
-const badStringOption: Option<string> = none();
-const badNumberOption: Option<number> = none();
+const badStringOption: Option<string> = none;
+const badNumberOption: Option<number> = none;
 
 const optionWorkflow = (s: Option<string>, n: Option<number>): Option<number> =>
   option(({ $ }) => {
