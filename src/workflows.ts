@@ -6,11 +6,8 @@
 import { Either, left, right } from "fp-ts/lib/Either";
 import { none, Option, some } from "fp-ts/lib/Option";
 import { left as leftT, right as rightT, TaskEither } from "fp-ts/lib/TaskEither";
-import {
-  eitherComputation,
-  optionComputation,
-  taskEitherComputation,
-} from "./computation";
+import { eitherComputation, taskEitherComputation } from "./computation";
+import { optionComputation } from "./computation-option";
 
 export const goodStringOption: Option<string> = some("good");
 export const goodNumberOption: Option<number> = some(42);

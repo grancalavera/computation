@@ -2,26 +2,12 @@ import { Either, isRight, tryCatch as tryCatchE } from "fp-ts/lib/Either";
 import { isNone, none, Option, tryCatch as tryCatchO } from "fp-ts/lib/Option";
 import { TaskEither, tryCatchK } from "fp-ts/lib/TaskEither";
 
-class UnwrapError extends Error {
+export class UnwrapError extends Error {
   constructor(public readonly error: any) {
     super();
     Object.setPrototypeOf(this, UnwrapError.prototype);
   }
 }
-
-export const optionComputation = <T>(
-  run: (context: { $: <U>(mu: Option<U>) => U }) => T
-): Option<T> => {
-  const unwrap = <A>(ma: Option<A>) => {
-    if (isNone(ma)) {
-      throw new UnwrapError(none);
-    } else {
-      return ma.value;
-    }
-  };
-
-  return tryCatchO(() => run({ $: unwrap }));
-};
 
 export const eitherComputation = <F, T>(
   compute: (run: { $: <U>(mu: Either<F, U>) => U }) => T
