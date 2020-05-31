@@ -2,9 +2,13 @@ import { either } from "fp-ts/lib/Either";
 import { HKT, Kind, Kind2, URIS, URIS2 } from "fp-ts/lib/HKT";
 import { Monad, Monad1, Monad2 } from "fp-ts/lib/Monad";
 import { option } from "fp-ts/lib/Option";
+import { reader } from "fp-ts/lib/Reader";
+import { state } from "fp-ts/lib/State";
 
 export const optionComputation = buildComputation(option);
 export const eitherComputation = buildComputation(either);
+export const readerComputation = buildComputation(reader);
+export const stateComputation = buildComputation(state);
 
 export class UnwrapError extends Error {
   constructor(public readonly error: any) {
@@ -23,6 +27,7 @@ export function buildComputation<M extends URIS>(M: Monad1<M>): <T>(run: (ctx: {
 // prettier-ignore
 export function buildComputation<M>(M: Monad<M>): <T>(run: (ctx: { $: <U>(mu: HKT<M, U>) => U }) => T) => HKT<M, T> {
   return (run) => {
+
     const unwrap = <U>(mu: HKT<M, U>): U => {
       let unwrapped: U | undefined;
 
