@@ -4,7 +4,8 @@
 // https://gcanti.github.io/fp-ts/
 
 // import "./validation";
-// import "./workflows";
+import "./workflows";
 // import "./defunctionalization/yallop-and-white";
-import "./defunctionalization/koppel-1";
+// import "./defunctionalization/koppel-1";
 // import "./defunctionalization/koppel-2";
+// import "./defunctionalization/indentity";
